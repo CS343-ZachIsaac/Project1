@@ -2,8 +2,8 @@
 
 void FlameParticleGenerator::respawn(FlameParticle& particle) const
 {
-	particle.setLife(120.0f);
-
+	particle.setLife(2);
+	particle.setFade(false);
 	//randomize particle parameters
 
 	//Set the sprite
@@ -29,7 +29,7 @@ void FlameParticleGenerator::respawn(FlameParticle& particle) const
 
 	//Random rotation
 	//--------------
-	Max = .15;
+	Max = .2;
 	Min = .10;
 	//--------------
 	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
@@ -54,7 +54,7 @@ void FlameParticleGenerator::respawn(FlameParticle& particle) const
 	//set color random
 
 	//--------------
-	Max = 0.85;
+	Max = 0.95;
 	Min = 0.6;
 	//--------------
 	glm::vec4 color;

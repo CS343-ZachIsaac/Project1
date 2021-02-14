@@ -35,7 +35,7 @@ private:
 	FlameParticleGenerator particleGenerator{/*If not default put params here*/};
 
 	//Particle Systems
-	ParticleSystem<FlameParticle> particleSystem{particleGenerator, /*#particles*/ 42, /*#particles per second*/ 20.0f};
+	ParticleSystem<FlameParticle> particleSystem{particleGenerator, /*#particles*/ 21, /*#particles per second*/ 10.0f};
 
 	//Shaders
 	ofShader ParticleShader;

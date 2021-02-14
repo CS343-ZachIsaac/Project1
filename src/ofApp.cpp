@@ -34,6 +34,7 @@ void ofApp::update()
 void ofApp::draw() {
 	using namespace glm;
 	//Shader begin
+	ofEnableBlendMode(ofBlendMode::OF_BLENDMODE_ADD);
 	ParticleShader.begin();
 	for (FlameParticle f : particleSystem)
 	{

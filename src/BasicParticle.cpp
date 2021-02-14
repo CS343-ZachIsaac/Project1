@@ -48,7 +48,7 @@ void BasicParticle::setSprite(int newSprite)
 void BasicParticle::update(float dt)
 {
     //Life decrease by 0.5f per dt which is 0.5 per second
-    life -= dt * 0.01f;
+    life -= dt * 0.5f;
 
     //update position, velocity, etc
 

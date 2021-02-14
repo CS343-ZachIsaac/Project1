@@ -13,5 +13,25 @@ void FlameParticle::update(float dt)
 	//color
 	setColor(getColor() - glm::vec4(0.0, 0.0, 0.0, 0.00015));
 	//change alpha to move in and out
+	if (getColor().a >= 1 && !Fade) {
+		Fade = true;
+	}
+	else if (getColor().a <= 0 && Fade)
+	{
+		Fade = false;
+	}
+	if (!Fade)
+	{
+		setColor(getColor() + glm::vec4(0.0, 0.0, 0.0, 0.02));
+	}
+	else if (Fade)
+	{
+		setColor(getColor() - glm::vec4(0.0, 0.0, 0.0, 0.02));
+	}
+}
+
+bool FlameParticle::setFade(bool value)
+{
+	return Fade;
 }
 
