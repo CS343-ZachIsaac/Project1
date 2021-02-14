@@ -20,6 +20,7 @@ public:
         for (unsigned int i { 0 }; i < numParticles; i++)
         {
             particles.emplace_back(); // Adds new default particle.
+            generator.respawn(particles.back());
         }
     }
 

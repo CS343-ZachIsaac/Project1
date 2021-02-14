@@ -5,9 +5,9 @@ void ofApp::setup() {
 	ofDisableArbTex();
 	//Use this line for texture load check -- assert(img.getWidth() != 0 && img.getHeight() != 0);
 	buildMesh(FlameMesh, 1.0, 1.0, glm::vec3(0.0, 0.0, 0.0));
-	Flame1.load("textures/flame_01.png");
+	Flame1.load("textures/flame_05.png");
 	assert(Flame1.getWidth() != 0 && Flame1.getHeight() != 0);
-	Flame2.load("textures/flame_02.png");
+	Flame2.load("textures/flame_06.png");
 	assert(Flame2.getWidth() != 0 && Flame2.getHeight() != 0);
 	ReloadShaders();
 }
@@ -54,7 +54,7 @@ void ofApp::draw() {
 		}
 		
 		
-
+		ParticleShader.setUniform4f("particleColor", f.getColor());
 		//draw the quad
 		FlameMesh.draw();
 

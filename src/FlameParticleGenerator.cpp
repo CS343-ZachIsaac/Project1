@@ -29,8 +29,8 @@ void FlameParticleGenerator::respawn(FlameParticle& particle) const
 
 	//Random rotation
 	//--------------
-	Max = .10;
-	Min = .15;
+	Max = .15;
+	Min = .10;
 	//--------------
 	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
 	float rot = random;
@@ -40,8 +40,8 @@ void FlameParticleGenerator::respawn(FlameParticle& particle) const
 
 	//Random Scale
 	//--------------
-	Max = .2;
-	Min = .6;
+	Max = 0.6;
+	Min = 0.2;
 	//--------------
 	glm::vec3 _scale;
 	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
@@ -53,6 +53,22 @@ void FlameParticleGenerator::respawn(FlameParticle& particle) const
 	particle.setScale(_scale);
 	//set color random
 
+	//--------------
+	Max = 0.85;
+	Min = 0.6;
+	//--------------
+	glm::vec4 color;
+	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
+	color.r = random;
+
+	Max = 0.5;
+	Min = 0.15;
+	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
+	color.g = random;
+	color.b = 0.0;
+	color.a = 0.8;
+	//set the new scale
+	particle.setColor(glm::vec4(color));
 
 }
 
