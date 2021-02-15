@@ -5,10 +5,19 @@ void ofApp::setup() {
 	ofDisableArbTex();
 	//Use this line for texture load check -- assert(img.getWidth() != 0 && img.getHeight() != 0);
 	buildMesh(FlameMesh, 1.0, 1.0, glm::vec3(0.0, 0.0, 0.0));
+	buildMesh(SmokeMesh, 1.0, 1.0, glm::vec3(0.0, 0.0, 0.0));
+
+	//------------
 	Flame1.load("textures/flame_05.png");
 	assert(Flame1.getWidth() != 0 && Flame1.getHeight() != 0);
 	Flame2.load("textures/flame_06.png");
 	assert(Flame2.getWidth() != 0 && Flame2.getHeight() != 0);
+
+	//----------
+	Smoke1.load("textures/smoke_04.png");
+	assert(Smoke1.getWidth() != 0 && Smoke1.getHeight() != 0);
+	Smoke2.load("textures/smoke_05.png");
+	assert(Smoke2.getWidth() != 0 && Smoke2.getHeight() != 0);
 	ReloadShaders();
 }
 
@@ -61,6 +70,31 @@ void ofApp::draw() {
 
 	}
 	//shader endl
+	ofEnableBlendMode(ofBlendMode::OF_BLENDMODE_ALPHA);
+	for (SmokeParticle s : smokeParticleSystem)
+	{
+		//Get Particle translation(velocity), rotation, scale and build a 4D matrix for transformation
+		mat4 transformationMatrix = buildMatrix(/*particle position*/s.getPosition(), /*particle rotation*/s.getRotation(), /*particle scale*/s.getScale());
+		//Pass the 4D matrix into the shader for the transformation to be applied
+		ParticleShader.setUniformMatrix4f("transformation", /*transformation matrix*/ transformationMatrix);
+
+		//Get Any brightnes, color, and other variables and pass to fragment shader
+		switch (s.getSprite())
+		{
+		case 0:
+			ParticleShader.setUniformTexture("Tex", Smoke1, 0);
+			break;
+		case 1:
+			ParticleShader.setUniformTexture("Tex", Smoke2, 0);
+			break;
+		}
+
+
+		ParticleShader.setUniform4f("particleColor", s.getColor());
+		//draw the quad
+		SmokeMesh.draw();
+
+	}
 	ParticleShader.end();
 }
 //--------------------------------------------------------------

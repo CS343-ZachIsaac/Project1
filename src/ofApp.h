@@ -4,6 +4,8 @@
 #include "FlameParticleGenerator.h"
 #include "FlameParticle.h"
 #include "ParticleSystem.h"
+#include "SmokeParticle.h"
+#include "SmokeParticleGenerator.h"
 
 class ofApp : public ofBaseApp{
 
@@ -33,19 +35,23 @@ class ofApp : public ofBaseApp{
 private:
 	//Particle Generators
 	FlameParticleGenerator particleGenerator{/*If not default put params here*/};
+	SmokeParticleGenerator smokeParticleGenerator{/*If not default put params here*/ };
 
 	//Particle Systems
 	ParticleSystem<FlameParticle> particleSystem{particleGenerator, /*#particles*/ 21, /*#particles per second*/ 10.0f};
-
+	ParticleSystem<SmokeParticle> smokeParticleSystem{smokeParticleGenerator, /*#particles*/ 21, /*#particles per second*/ 10.0f };
 	//Shaders
 	ofShader ParticleShader;
 
 	//Meshes
 	ofMesh FlameMesh;
+	ofMesh SmokeMesh;
 
 	//Images
 	ofImage Flame1;
 	ofImage Flame2;
+	ofImage Smoke1;
+	ofImage Smoke2;
 
 	//others
 	bool needsReload{ true };

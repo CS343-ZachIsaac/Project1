@@ -12,6 +12,10 @@
     </ClCompile>
     <ClCompile Include="src\BasicParticle.cpp" />
     <ClCompile Include="src\FlameParticle.cpp" />
+    <ClCompile Include="src\SmokeParticle.cpp" />
+    <ClCompile Include="src\SmokeParticleGenerator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -35,6 +39,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\FlameParticle.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SmokeParticle.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SmokeParticleGenerator.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

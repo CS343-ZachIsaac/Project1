@@ -185,6 +185,8 @@
     <ClCompile Include="src\FlameParticleGenerator.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="src\SmokeParticle.cpp" />
+    <ClCompile Include="src\SmokeParticleGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BasicParticle.h" />
@@ -193,6 +195,8 @@
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Particle.h" />
     <ClInclude Include="src\ParticleSystem.h" />
+    <ClInclude Include="src\SmokeParticle.h" />
+    <ClInclude Include="src\SmokeParticleGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
