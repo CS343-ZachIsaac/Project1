@@ -7,7 +7,7 @@ void SmokeParticleGenerator::respawn(SmokeParticle& particle) const {
 	//randomize particle parameters
 
 	//Set the sprite
-	int randSprite = rand() % 1;
+	int randSprite = rand() % 2;
 	particle.setSprite(randSprite);
 
 
@@ -15,11 +15,14 @@ void SmokeParticleGenerator::respawn(SmokeParticle& particle) const {
 	glm::vec3 pos;
 	//--------------
 	float Max = 1; //Max position
-	float Min = -1; // Min position
+	float Min = 0; // Min position
 	//--------------
 	float random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
 	//set Position scale and rotation
 	pos.x = random; // Results in a random floating-point number between // 0.0 and 1.0, with precision to the 100thsplace.;
+	
+	Max = 3.1;
+	Min = 2.5;
 	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
 	pos.y = random;
 	pos.z = 0.0;
@@ -29,8 +32,8 @@ void SmokeParticleGenerator::respawn(SmokeParticle& particle) const {
 
 	//Random rotation
 	//--------------
-	Max = .2;
-	Min = .10;
+	Max = 0.8;
+	Min = 0.1;
 	//--------------
 	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
 	float rot = random;
@@ -40,8 +43,8 @@ void SmokeParticleGenerator::respawn(SmokeParticle& particle) const {
 
 	//Random Scale
 	//--------------
-	Max = 0.6;
-	Min = 0.2;
+	Max = 0.1;
+	Min = 0.05;
 	//--------------
 	glm::vec3 _scale;
 	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
@@ -54,20 +57,22 @@ void SmokeParticleGenerator::respawn(SmokeParticle& particle) const {
 	//set color random
 
 	//--------------
-	Max = 0.95;
-	Min = 0.6;
+	Max = 0.1;
+	Min = 0.0;
 	//--------------
 	glm::vec4 color;
 	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
 	color.r = random;
 
-	Max = 0.5;
-	Min = 0.15;
+	Max = 0.05;
+	Min = 0.0;
 	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
 	color.g = random;
-	color.b = 0.0;
-	color.a = 0.8;
+	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
+	color.b = random;
+	color.a = 0.0;
 	//set the new scale
 	particle.setColor(glm::vec4(color));
 
+	particle.setVelocity(glm::vec3(.5, 1.5, 0.0));
 }

@@ -52,10 +52,10 @@
     <ResourceCompile Include="icon.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\data\Flame_Fragment.frag">
+    <None Include="bin\data\particleFragment.frag">
       <Filter>src</Filter>
     </None>
-    <None Include="bin\data\Flame_vertex.vert">
+    <None Include="bin\data\particleVertex.vert">
       <Filter>src</Filter>
     </None>
   </ItemGroup>

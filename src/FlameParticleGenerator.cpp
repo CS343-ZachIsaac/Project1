@@ -7,15 +7,15 @@ void FlameParticleGenerator::respawn(FlameParticle& particle) const
 	//randomize particle parameters
 
 	//Set the sprite
-	int randSprite = rand() % 1;
+	int randSprite = rand() % 2;
 	particle.setSprite(randSprite);
 
 
 	//Random Position
 	glm::vec3 pos;
 	//--------------
-	float Max = 1; //Max position
-	float Min = -1; // Min position
+	float Max = .05; //Max position
+	float Min = -.05; // Min position
 	//--------------
 	float random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
 	//set Position scale and rotation
@@ -29,8 +29,8 @@ void FlameParticleGenerator::respawn(FlameParticle& particle) const
 
 	//Random rotation
 	//--------------
-	Max = .2;
-	Min = .10;
+	Max = .025;
+	Min = -.025;
 	//--------------
 	random = ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
 	float rot = random;

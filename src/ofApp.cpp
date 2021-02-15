@@ -25,7 +25,7 @@ void ofApp::setup() {
 
 void ofApp::ReloadShaders()
 {
-	ParticleShader.load("Flame_vertex.vert", "Flame_Fragment.frag");
+	ParticleShader.load("particleVertex.vert", "particleFragment.frag");
 	needsReload = false;
 }
 
@@ -37,6 +37,7 @@ void ofApp::update()
 		ReloadShaders();
 	}
 	particleSystem.update(ofGetLastFrameTime());
+	smokeParticleSystem.update(ofGetLastFrameTime());
 }
 
 //--------------------------------------------------------------

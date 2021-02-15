@@ -39,7 +39,7 @@ private:
 
 	//Particle Systems
 	ParticleSystem<FlameParticle> particleSystem{particleGenerator, /*#particles*/ 21, /*#particles per second*/ 10.0f};
-	ParticleSystem<SmokeParticle> smokeParticleSystem{smokeParticleGenerator, /*#particles*/ 21, /*#particles per second*/ 10.0f };
+	ParticleSystem<SmokeParticle> smokeParticleSystem{smokeParticleGenerator, /*#particles*/ 42, /*#particles per second*/ 20.0f };
 	//Shaders
 	ofShader ParticleShader;
 
